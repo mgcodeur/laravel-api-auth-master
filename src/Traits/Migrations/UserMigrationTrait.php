@@ -1,6 +1,7 @@
 <?php
 
 namespace Mgcodeur\LaravelApiAuthMaster\Traits\Migrations;
+
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
@@ -16,6 +17,7 @@ trait UserMigrationTrait
     public function setTable(string $table): self
     {
         $this->table = $table;
+
         return $this;
     }
 
