@@ -1,12 +1,12 @@
-- [About](./src/docs/readme/about.md)
-- [Installation](./src/docs/readme/installation.md)
+- [About](about.md)
+- [Installation](installation.md)
 
-#### About :
+#### About
 -----------------
 
 This is a secure and easy to use authentication management package that allows you to manage all aspects related to your application authentication.
 
-#### Features :
+#### Features
 -----------------
 
 - Login (using social account, email and password)
