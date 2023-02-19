@@ -27,23 +27,34 @@
 
 #### How to use :
 -----------------
-- Install the package using composer 
+- Install the package using composer
+
 ```bash
 composer require mgcodeur/laravel-api-auth-master
 ```
+
 - Install 
+
 ```bash
 php artisan mg-auth:install
 ```
 
 - Migrate the database
+
 ```bash
 php artisan migrate
 ```
 
 #### In your Auth Model :
 -----------------
+- Add the following trait to your model
+
+```php
+use Mgcodeur\LaravelApiAuthMaster\Traits\Models\AuthMasterTrait
+```
+
 - Add the following fields to fillable array
+
 ```php
 protected $fillable = [
     --//--,
@@ -52,7 +63,7 @@ protected $fillable = [
 ];
 ```
 
-
+#### NB : password field is automatically hashed by the package using the Hash facade
 
 #### Screenshots :
 

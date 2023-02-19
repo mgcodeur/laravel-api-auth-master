@@ -4,10 +4,13 @@ namespace Mgcodeur\LaravelApiAuthMaster\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Mgcodeur\LaravelApiAuthMaster\LaravelApiAuthMasterServiceProvider;
+use Mgcodeur\LaravelApiAuthMaster\Traits\Configurations\TestEnvironmentConfigurationTrait;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
 {
+    use TestEnvironmentConfigurationTrait;
+
     protected function setUp(): void
     {
         parent::setUp();
@@ -27,9 +30,6 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
-        $migrations = array_map(fn ($file) => include $file, glob(__DIR__.'/../database/migrations/*.php'));
-        foreach ($migrations as $migration) {
-            $migration->up();
-        }
+        $this->runPackageMigrations();
     }
 }
