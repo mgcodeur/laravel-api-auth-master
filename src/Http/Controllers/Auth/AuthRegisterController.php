@@ -11,9 +11,10 @@ class AuthRegisterController
     {
         $user = LaravelApiAuthMaster::getAuthModel()::create($request->validated());
         $user->access_token = $user->createToken('authToken')->plainTextToken;
-
+        //TODO: send email to user with link or code to verify email
         return response()->json([
             'data' => $user,
+            'message' => trans('mg-auth::auth.register.success.message'),
         ], 201);
     }
 }

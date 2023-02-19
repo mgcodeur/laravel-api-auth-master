@@ -23,6 +23,7 @@ class LaravelApiAuthMasterServiceProvider extends PackageServiceProvider
             ])
             ->hasViews()
             ->hasRoute('api')
-            ->hasCommand(LaravelApiAuthMasterCommand::class);
+            ->hasCommand(LaravelApiAuthMasterCommand::class)
+            ->hasTranslations();
     }
 }

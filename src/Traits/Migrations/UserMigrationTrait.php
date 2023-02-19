@@ -26,7 +26,7 @@ trait UserMigrationTrait
         return $this->table;
     }
 
-    public function dropAndAddColumn(string $destinationTable, array $columnsToDrop, array $columnsToAdd): void
+    public function dropColumnAndAdd(string $destinationTable, array $columnsToDrop, array $columnsToAdd): void
     {
         Schema::table($destinationTable, function (Blueprint $table) use ($columnsToDrop, $columnsToAdd, $destinationTable) {
             foreach ($columnsToDrop as $column) {
@@ -39,9 +39,23 @@ trait UserMigrationTrait
                 match ($column) {
                     'first_name' => $table->string($column)->nullable()->after('id'),
                     'last_name' => $table->string($column)->nullable()->after('first_name'),
-                    default => $table->string($column)->nullable()->after('updated_at'),
+                    default => '',
                 };
             }
+        });
+    }
+
+    public function createUsersTable(): void
+    {
+        Schema::create($this->getTable(), function (Blueprint $table) {
+            $table->id();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 }
