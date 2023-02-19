@@ -30,4 +30,4 @@ This is a secure and easy to use authentication management package that allows y
 #### Database schema :
 -----------------
 
-![Database schema](./src/docs/schemas/schema.png)
+![Database schema](../schemas/schema.png)
