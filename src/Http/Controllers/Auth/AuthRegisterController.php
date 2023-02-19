@@ -14,7 +14,7 @@ class AuthRegisterController
         //TODO: send email to user with link or code to verify email
         return response()->json([
             'data' => $user,
-            'message' => trans('mg-auth::auth.register.success.message')
+            'message' => trans('mg-auth::auth.register.success.message'),
         ], 201);
     }
 }

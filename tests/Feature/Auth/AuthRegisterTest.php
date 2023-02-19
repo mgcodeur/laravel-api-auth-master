@@ -47,7 +47,7 @@ it('Store a new user', function () {
             'created_at',
             'updated_at',
         ],
-        'message'
+        'message',
     ]);
 
     // Verify if response data contains the access_token
@@ -57,7 +57,7 @@ it('Store a new user', function () {
 
     // Verify the message
     $response->assertJsonFragment([
-        'message' => trans('mg-auth::auth.register.success.message')
+        'message' => trans('mg-auth::auth.register.success.message'),
     ]);
 
     // Check if the password is hashed

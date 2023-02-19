@@ -1,9 +1,9 @@
 <?php
 
 return [
-    "register" => [
-        "success" => [
-            "message" => "Utilisateur créé avec succès"
-        ]
+    'register' => [
+        'success' => [
+            'message' => 'Utilisateur créé avec succès',
+        ],
     ],
 ];
