@@ -17,7 +17,7 @@ class TestCase extends Orchestra
         );
     }
 
-    protected function getPackageProviders($app)
+    protected function getPackageProviders($app): array
     {
         return [
             LaravelApiAuthMasterServiceProvider::class,
@@ -27,10 +27,9 @@ class TestCase extends Orchestra
     public function getEnvironmentSetUp($app)
     {
         config()->set('database.default', 'testing');
-
-        /*
-        $migration = include __DIR__.'/../database/migrations/create_laravel-api-auth-master_table.php.stub';
-        $migration->up();
-        */
+        $migrations = array_map(fn ($file) => include $file, glob(__DIR__.'/../database/migrations/*.php'));
+        foreach ($migrations as $migration) {
+            $migration->up();
+        }
     }
 }

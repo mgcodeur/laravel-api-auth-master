@@ -8,7 +8,7 @@ return [
     ],
 
     'auth' => [
-        'model' => User::class, // model used for authentication
+        'model' => User::class, // model used for authentication, you can replace it
         'table' => 'users',
     ],
 ];

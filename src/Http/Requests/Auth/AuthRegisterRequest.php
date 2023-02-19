@@ -5,6 +5,7 @@ namespace Mgcodeur\LaravelApiAuthMaster\Http\Requests\Auth;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
+use Mgcodeur\LaravelApiAuthMaster\LaravelApiAuthMaster;
 
 class AuthRegisterRequest extends FormRequest
 {
@@ -28,7 +29,7 @@ class AuthRegisterRequest extends FormRequest
         return [
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255|unique:'.LaravelApiAuthMaster::getTable(),
             'password' => 'required|string|min:8|confirmed',
         ];
     }
