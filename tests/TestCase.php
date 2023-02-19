@@ -3,7 +3,6 @@
 namespace Mgcodeur\LaravelApiAuthMaster\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Facades\Schema;
 use Mgcodeur\LaravelApiAuthMaster\LaravelApiAuthMasterServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up()
     {
         //Laravel Sanctum Simulation (test only)
-        if(!Schema::hasTable('personal_access_tokens')) {
+        if (! Schema::hasTable('personal_access_tokens')) {
             Schema::create('personal_access_tokens', function (Blueprint $table) {
                 $table->id();
                 $table->foreignId('tokenable_id')->index();

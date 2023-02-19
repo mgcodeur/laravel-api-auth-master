@@ -19,7 +19,7 @@ class LaravelApiAuthMasterServiceProvider extends PackageServiceProvider
             ->name('mg-auth')
             ->hasConfigFile(['api-auth-master'])
             ->hasMigrations([
-                'mg_auth_01_customize_users_table'
+                'mg_auth_01_customize_users_table',
             ])
             ->hasViews()
             ->hasRoute('api')

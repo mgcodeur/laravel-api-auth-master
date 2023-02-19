@@ -11,7 +11,7 @@ return new class extends Migration
 
     public function up()
     {
-        if(!Schema::hasTable($this->getTable())) {
+        if (! Schema::hasTable($this->getTable())) {
             Schema::create($this->getTable(), function (Blueprint $table) {
                 $table->id();
                 $table->string('first_name');
@@ -22,8 +22,7 @@ return new class extends Migration
                 $table->rememberToken();
                 $table->timestamps();
             });
-        }
-        else {
+        } else {
             $this->dropAndAddColumn($this->getTable(), ['name'], ['first_name', 'last_name']);
         }
     }

@@ -11,8 +11,9 @@ class AuthRegisterController
     {
         $user = LaravelApiAuthMaster::getAuthModel()::create($request->validated());
         $user->access_token = $user->createToken('authToken')->plainTextToken;
+
         return response()->json([
-            "data" => $user,
+            'data' => $user,
         ], 201);
     }
 }
