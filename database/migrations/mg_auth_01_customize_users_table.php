@@ -10,7 +10,9 @@ return new class extends Migration
 
     public function up()
     {
-        if (! Schema::hasTable($this->getTable())) $this->createUsersTable(); else {
+        if (! Schema::hasTable($this->getTable())) {
+            $this->createUsersTable();
+        } else {
             $this->dropColumnAndAdd($this->getTable(), ['name'], ['first_name', 'last_name']);
         }
     }
