@@ -26,3 +26,8 @@ This is a secure and easy to use authentication management package that allows y
 - Logout
 - Logout all devices
 - Authentication log
+
+#### Database schema :
+-----------------
+
+![Database schema](./src/docs/schemas/schema.png)
