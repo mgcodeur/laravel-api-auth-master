@@ -37,8 +37,9 @@ trait UserMigrationTrait
 
             foreach ($columnsToAdd as $column) {
                 match ($column) {
-                    'first_name' => $table->string('first_name')->nullable()->after('id'),
-                    'last_name' => $table->string('last_name')->nullable()->after('first_name'),
+                    'first_name' => $table->string($column)->nullable()->after('id'),
+                    'last_name' => $table->string($column)->nullable()->after('first_name'),
+                    default => $table->string($column)->nullable()->after('updated_at'),
                 };
             }
         });
