@@ -58,7 +58,7 @@ it('Provides access token', function () use ($fakeUser) {
     ]);
 });
 
-it('Has a success message', function() use ($fakeUser) {
+it('Has a success message', function () use ($fakeUser) {
     $response = postJson(route('api.auth.register'), $fakeUser);
 
     // Check if the success message is present
@@ -67,7 +67,7 @@ it('Has a success message', function() use ($fakeUser) {
     ]);
 });
 
-it('Return the good datas', function() use ($fakeUser) {
+it('Return the good datas', function () use ($fakeUser) {
     // Create a new user
     $response = postJson(route('api.auth.register'), $fakeUser);
 
