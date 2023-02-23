@@ -7,7 +7,7 @@ return [
 
     'auth' => [
         'model' => 'App\Models\User', // model used for authentication, you can replace it, you can use User::class syntax
-        'table' => 'users'
+        'table' => 'users',
     ],
 
     'otp' => [
@@ -18,7 +18,7 @@ return [
         'email' => [
             'subject' => 'Your otp code', // subject of the email
             'template' => 'mg-auth::emails.otp', // view of the email
-        ]
+        ],
     ],
 
     'token' => [
