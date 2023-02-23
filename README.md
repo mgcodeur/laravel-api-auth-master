@@ -6,11 +6,7 @@
 [![GitHub Code Style Action Status](https://github.com/mgcodeur/laravel-api-auth-master/workflows/Fix%20PHP%20code%20style%20issues/badge.svg)](https://github.com/mgcodeur/laravel-api-auth-master/actions?query=workflow%3AFix%20PHP%20code%20style%20issues)
 [![GitHub Code Style Action Status](https://github.com/mgcodeur/laravel-api-auth-master/workflows/run-tests/badge.svg)](https://github.com/mgcodeur/laravel-api-auth-master/actions?query=workflow%3Arun-tests)
 
-<br/>
-
-*Please note that this package is still in development and not ready for production use. (visit https://github.com/mgcodeur/laravel-api-auth-master/wiki for more information)*
-
-<br/>
+***Please note that this package is still in development and not ready for production use. (visit https://github.com/mgcodeur/laravel-api-auth-master/wiki for more information)***
 
 ##  Summary
 
