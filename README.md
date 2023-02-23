@@ -8,7 +8,7 @@
 
 <br/>
 
-**Please note that this package is still in development and not ready for production use. (visit https://github.com/mgcodeur/laravel-api-auth-master/wiki for more information)
+***Please note that this package is still in development and not ready for production use. (visit https://github.com/mgcodeur/laravel-api-auth-master/wiki for more information)***
 
 <br/>
 
