@@ -1,6 +1,7 @@
 <?php
 
 namespace Mgcodeur\LaravelApiAuthMaster\Traits\Models;
+
 use Mgcodeur\LaravelApiAuthMaster\Traits\ModelHelpers\AuthMasterOtpTrait;
 
 trait AuthMasterTrait

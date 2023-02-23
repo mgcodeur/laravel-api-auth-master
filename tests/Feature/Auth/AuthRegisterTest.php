@@ -103,4 +103,3 @@ test('User is not verfied yet', function () use ($fakeUser) {
     $user = LaravelApiAuthMaster::getAuthModel()::where('email', $response->json('data.email'))->first();
     assertTrue($user->email_verified_at === null);
 });
-
