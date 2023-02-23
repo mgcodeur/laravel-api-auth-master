@@ -39,7 +39,7 @@ it('Store a new user', function () use ($fakeUser) {
     $response->assertStatus(201);
 });
 
-it('Hash password', function () use ($fakeUser) {
+it('Hash the password', function () use ($fakeUser) {
     // Create a new user
     $response = postJson(route('api.auth.register'), $fakeUser);
 
@@ -85,3 +85,22 @@ it('Return the good datas', function () use ($fakeUser) {
         'message',
     ]);
 });
+
+it('Token has the good name', function () use ($fakeUser) {
+    // Create a new user
+    $response = postJson(route('api.auth.register'), $fakeUser);
+
+    // Check if the token name is the good one
+    $user = LaravelApiAuthMaster::getAuthModel()::where('email', $response->json('data.email'))->first();
+    assertTrue($user->tokens->first()->name === config('api-auth-master.token.name'));
+});
+
+test('User is not verfied yet', function () use ($fakeUser) {
+    // Create a new user
+    $response = postJson(route('api.auth.register'), $fakeUser);
+
+    // Check if the user is not verified
+    $user = LaravelApiAuthMaster::getAuthModel()::where('email', $response->json('data.email'))->first();
+    assertTrue($user->email_verified_at === null);
+});
+
