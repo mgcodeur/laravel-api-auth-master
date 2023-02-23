@@ -1,15 +1,14 @@
 #  Laravel API Auth Master
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/mgcodeur/laravel-api-auth-master.svg?style=flat-square)](https://packagist.org/packages/mgcodeur/laravel-api-auth-master)
-[![Total Downloads](https://img.shields.io/packagist/dt/mgcodeur/laravel-api-auth-master.svg?style=flat-square)](https://packagist.org/packages/mgcodeur/laravel-api-auth-master)
-
+[![Latest Version on Packagist](https://poser.pugx.org/mgcodeur/laravel-api-auth-master/v/stable)](https://packagist.org/packages/mgcodeur/laravel-api-auth-master)
+[![Total Downloads](https://poser.pugx.org/mgcodeur/laravel-api-auth-master/downloads)](https://packagist.org/packages/mgcodeur/laravel-api-auth-master)
 [![GitHub Tests Action Status](https://github.com/mgcodeur/laravel-api-auth-master/workflows/PHPStan/badge.svg)](https://github.com/mgcodeur/laravel-api-auth-master/actions?query=workflow%3APHPStan)
 [![GitHub Code Style Action Status](https://github.com/mgcodeur/laravel-api-auth-master/workflows/Fix%20PHP%20code%20style%20issues/badge.svg)](https://github.com/mgcodeur/laravel-api-auth-master/actions?query=workflow%3AFix%20PHP%20code%20style%20issues)
 [![GitHub Code Style Action Status](https://github.com/mgcodeur/laravel-api-auth-master/workflows/run-tests/badge.svg)](https://github.com/mgcodeur/laravel-api-auth-master/actions?query=workflow%3Arun-tests)
 
 <br/>
 
-**Please note that this package is still in development and not ready for production use. (visit https://github.com/mgcodeur/laravel-api-auth-master/wiki for more information)
+*Please note that this package is still in development and not ready for production use. (visit https://github.com/mgcodeur/laravel-api-auth-master/wiki for more information)*
 
 <br/>
 
