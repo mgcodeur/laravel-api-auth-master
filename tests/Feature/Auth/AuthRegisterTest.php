@@ -18,7 +18,7 @@ it('Validate input datas', function () {
     $response = postJson(route('api.auth.register'), []);
 
     // Verify the response status
-    $response->assertStatus(400);
+    $response->assertStatus(422);
 
     // Validations errors
     $response->assertJsonValidationErrors(['first_name', 'last_name', 'email', 'password']);
