@@ -16,4 +16,14 @@ class DevUserForTests
             'password_confirmation' => 'password',
         ];
     }
+
+    public static function wrongCredentials()
+    {
+        $user = self::generateFakeUser();
+
+        return [
+            'email' => $user['email'],
+            'password' => 'wrong_password',
+        ];
+    }
 }
