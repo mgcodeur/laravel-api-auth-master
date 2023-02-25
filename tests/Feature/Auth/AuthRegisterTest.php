@@ -1,22 +1,12 @@
 <?php
 
-use Faker\Factory;
 use Illuminate\Support\Facades\Hash;
 use Mgcodeur\LaravelApiAuthMaster\LaravelApiAuthMaster;
+use Mgcodeur\LaravelApiAuthMaster\Traits\FakerForTests\DevUserForTests;
 use function Pest\Laravel\postJson;
 use function PHPUnit\Framework\assertTrue;
 
 uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
-
-$faker = Factory::create('Fr_fr');
-
-$fakeUser = [
-    'first_name' => $faker->name,
-    'last_name' => $faker->lastName,
-    'email' => $faker->unique()->safeEmail,
-    'password' => 'password',
-    'password_confirmation' => 'password',
-];
 
 it('Test the register route', function () {
     // Check if the register route exists
@@ -34,26 +24,26 @@ it('Validate input datas', function () {
     $response->assertJsonValidationErrors(['first_name', 'last_name', 'email', 'password']);
 });
 
-it('Store a new user', function () use ($fakeUser) {
+it('Store a new user', function () {
     // Create a new user
-    $response = postJson(route('api.auth.register'), $fakeUser);
+    $response = postJson(route('api.auth.register'), DevUserForTests::generateFakeUser());
 
     // Verify the response status
     $response->assertStatus(201);
 });
 
-it('Hash the password', function () use ($fakeUser) {
+it('Hash the password', function () {
     // Create a new user
-    $response = postJson(route('api.auth.register'), $fakeUser);
+    $response = postJson(route('api.auth.register'), DevUserForTests::generateFakeUser());
 
     // Check if the password is hashed
     $user = LaravelApiAuthMaster::getAuthModel()::where('email', $response->json('data.email'))->first();
     assertTrue(Hash::check('password', $user->password));
 });
 
-it('Provides access token', function () use ($fakeUser) {
+it('Provides access token', function () {
     // Create a new user
-    $response = postJson(route('api.auth.register'), $fakeUser);
+    $response = postJson(route('api.auth.register'), DevUserForTests::generateFakeUser());
 
     // Check if the access token is present
     $response->assertJsonFragment([
@@ -61,8 +51,8 @@ it('Provides access token', function () use ($fakeUser) {
     ]);
 });
 
-it('Has a success message', function () use ($fakeUser) {
-    $response = postJson(route('api.auth.register'), $fakeUser);
+it('Has a success message', function () {
+    $response = postJson(route('api.auth.register'), DevUserForTests::generateFakeUser());
 
     // Check if the success message is present
     $response->assertJsonFragment([
@@ -70,9 +60,9 @@ it('Has a success message', function () use ($fakeUser) {
     ]);
 });
 
-it('Return the good datas', function () use ($fakeUser) {
+it('Return the good datas', function () {
     // Create a new user
-    $response = postJson(route('api.auth.register'), $fakeUser);
+    $response = postJson(route('api.auth.register'), DevUserForTests::generateFakeUser());
 
     // Check if the user datas are present
     $response->assertJsonStructure([
@@ -89,18 +79,18 @@ it('Return the good datas', function () use ($fakeUser) {
     ]);
 });
 
-it('Token has the good name', function () use ($fakeUser) {
+it('Token has the good name', function () {
     // Create a new user
-    $response = postJson(route('api.auth.register'), $fakeUser);
+    $response = postJson(route('api.auth.register'), DevUserForTests::generateFakeUser());
 
     // Check if the token name is the good one
     $user = LaravelApiAuthMaster::getAuthModel()::where('email', $response->json('data.email'))->first();
     assertTrue($user->tokens->first()->name === config('api-auth-master.token.name'));
 });
 
-test('User is not verfied yet', function () use ($fakeUser) {
+test('User is not verfied yet', function () {
     // Create a new user
-    $response = postJson(route('api.auth.register'), $fakeUser);
+    $response = postJson(route('api.auth.register'), DevUserForTests::generateFakeUser());
 
     // Check if the user is not verified
     $user = LaravelApiAuthMaster::getAuthModel()::where('email', $response->json('data.email'))->first();
