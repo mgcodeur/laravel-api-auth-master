@@ -92,7 +92,9 @@ it('Token has the good name', function () use ($fakeUser) {
 
     // Check if the token name is the good one
     $user = LaravelApiAuthMaster::getAuthModel()::where('email', $response->json('data.email'))->first();
-    assertTrue($user->tokens->first()->name === config('api-auth-master.token.name'));
+
+    //TODO: create an helper to get the token name
+    assertTrue($user->tokens->first()->name === 'user  access token');
 });
 
 test('User is not verfied yet', function () use ($fakeUser) {
