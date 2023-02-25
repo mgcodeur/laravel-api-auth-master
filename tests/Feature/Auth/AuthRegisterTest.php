@@ -1,5 +1,6 @@
 <?php
 
+use Faker\Factory;
 use Illuminate\Support\Facades\Hash;
 use Mgcodeur\LaravelApiAuthMaster\LaravelApiAuthMaster;
 use function Pest\Laravel\postJson;
@@ -7,10 +8,12 @@ use function PHPUnit\Framework\assertTrue;
 
 uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
 
+$faker = Factory::create('Fr_fr');
+
 $fakeUser = [
-    'first_name' => fake()->firstName,
-    'last_name' => fake()->lastName,
-    'email' => fake()->unique()->safeEmail,
+    'first_name' => $faker->name,
+    'last_name' => $faker->lastName,
+    'email' => $faker->unique()->safeEmail,
     'password' => 'password',
     'password_confirmation' => 'password',
 ];
@@ -92,9 +95,7 @@ it('Token has the good name', function () use ($fakeUser) {
 
     // Check if the token name is the good one
     $user = LaravelApiAuthMaster::getAuthModel()::where('email', $response->json('data.email'))->first();
-
-    //TODO: create an helper to get the token name
-    assertTrue($user->tokens->first()->name === 'user  access token');
+    assertTrue($user->tokens->first()->name === config('api-auth-master.token.name'));
 });
 
 test('User is not verfied yet', function () use ($fakeUser) {
