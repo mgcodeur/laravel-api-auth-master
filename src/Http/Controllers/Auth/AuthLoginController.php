@@ -2,7 +2,6 @@
 
 namespace Mgcodeur\LaravelApiAuthMaster\Http\Controllers\Auth;
 
-use Mgcodeur\LaravelApiAuthMaster\Facades\LaravelApiAuthMaster;
 use Mgcodeur\LaravelApiAuthMaster\Http\Requests\Auth\AuthLoginRequest;
 
 class AuthLoginController
@@ -38,13 +37,7 @@ class AuthLoginController
      */
     public function __invoke(AuthLoginRequest $request)
     {
-        if (! auth()->attempt($request->validated())) {
-            return response()->json([
-                'message' => trans('mg-auth::auth.login.error.message'),
-            ], 401);
-        }
-
-        $user = LaravelApiAuthMaster::getAuthModel()::where('email', $request->email)->first();
+        $user = $request->authenticate();
 
         return response()->json([
             'data' => [

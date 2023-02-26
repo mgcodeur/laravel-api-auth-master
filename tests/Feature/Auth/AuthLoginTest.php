@@ -87,3 +87,30 @@ test('Verify sanctum token format', function () {
     // Check if the token is valid
     assertTrue(\Laravel\Sanctum\PersonalAccessToken::findToken($response->json('data.access_token'))->exists);
 });
+
+it('Can\'t login with wrong credentials 6 times', function () {
+    $user = DevUserForTests::generateFakeUser();
+    postJson(route('api.auth.register'), $user);
+
+    for ($i = 0; $i < 6; $i++) {
+        postJson(route('api.auth.login'), [
+            'email' => $user['email'],
+            'password' => 'wrong-password',
+        ]);
+    }
+
+    $response = postJson(route('api.auth.login'), [
+        'email' => $user['email'],
+        'password' => $user['password'],
+    ]);
+
+    $response->assertStatus(422);
+
+    // Check the json structure
+    $response->assertJsonStructure([
+        'message',
+        'errors' => [
+            'email',
+        ],
+    ]);
+});
