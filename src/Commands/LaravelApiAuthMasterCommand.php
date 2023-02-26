@@ -14,6 +14,7 @@ class LaravelApiAuthMasterCommand extends Command
     {
         $this->call('vendor:publish', ['--tag' => 'mg-auth-config']);
         $this->call('vendor:publish', ['--tag' => 'mg-auth-migrations']);
+        $this->call('vendor:publish', ['--provider' => 'L5Swagger\L5SwaggerServiceProvider']);
 
         return self::SUCCESS;
     }

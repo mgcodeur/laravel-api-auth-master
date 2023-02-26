@@ -8,6 +8,13 @@
 
 ***Please note that this package is still in development and not ready for production use. (visit https://github.com/mgcodeur/laravel-api-auth-master/wiki for more information)***
 
+
+* [About](https://github.com/mgcodeur/laravel-api-auth-master/wiki#summary)
+* [Installation](https://github.com/mgcodeur/laravel-api-auth-master/wiki/1---Installation#installation-steps) 
+* [Api documentation](https://github.com/mgcodeur/laravel-api-auth-master/wiki/2---Api-documentation#about) 
+* [Social authentication (socialite)](https://github.com/mgcodeur/laravel-api-auth-master/wiki/3---Social-Authentication-(Socialite)#about)
+
+
 ##  Summary
 
 This is a **secure** and **easy** to use **authentication** management package that allows you to manage all aspects related to your application **authentication**.
