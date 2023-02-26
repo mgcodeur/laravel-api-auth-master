@@ -9,7 +9,7 @@ class AuthLoginController
     /**
      * @OA\Post(
      *  path="/api/auth/login",
-     *  tags={"Auth"},
+     *  tags={"Form authentication"},
      *  summary="Login",
      *  description="Login the user",
      *

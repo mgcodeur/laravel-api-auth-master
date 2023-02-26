@@ -10,7 +10,7 @@ class AuthRegisterController
     /**
      * @OA\Post(
      *  path="/api/auth/register",
-     *  tags={"Auth"},
+     *  tags={"Form authentication"},
      *  summary="Register",
      *  description="Register a new user",
      *

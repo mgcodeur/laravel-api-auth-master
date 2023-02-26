@@ -45,6 +45,20 @@ trait UserMigrationTrait
         });
     }
 
+    public function setNullablePasswordColumn(string $destinationTable): void
+    {
+        Schema::table($destinationTable, function (Blueprint $table) {
+            $table->string('password')->nullable()->change();
+        });
+    }
+
+    public function setNotNullablePasswordColumn(string $destinationTable): void
+    {
+        Schema::table($destinationTable, function (Blueprint $table) {
+            $table->string('password')->nullable(false)->change();
+        });
+    }
+
     public function createUsersTable(): void
     {
         Schema::create($this->getTable(), function (Blueprint $table) {
@@ -53,7 +67,7 @@ trait UserMigrationTrait
             $table->string('last_name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

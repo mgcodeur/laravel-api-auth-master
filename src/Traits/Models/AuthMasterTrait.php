@@ -10,6 +10,13 @@ trait AuthMasterTrait
 
     public function setPasswordAttribute($value): void
     {
-        $this->attributes['password'] = bcrypt($value);
+        if ($value) {
+            $this->attributes['password'] = bcrypt($value);
+        }
+    }
+
+    public function socialAccounts()
+    {
+        return $this->hasMany(SocialAccount::class);
     }
 }
