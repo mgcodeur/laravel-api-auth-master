@@ -13,12 +13,14 @@ return new class extends Migration
         if (! Schema::hasTable($this->getTable())) {
             $this->createUsersTable();
         } else {
+            $this->setNullablePasswordColumn($this->getTable());
             $this->dropColumnAndAdd($this->getTable(), ['name'], ['first_name', 'last_name']);
         }
     }
 
     public function down()
     {
+        $this->setNotNullablePasswordColumn($this->getTable());
         $this->dropColumnAndAdd($this->getTable(), ['first_name', 'last_name'], ['name']);
     }
 };
